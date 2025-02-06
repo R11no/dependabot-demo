@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "sagasuke-sanpuro-backend"
+version = "0.1.0"
+description = ""
+authors = ["Ken Fujii <ken.fujii@japan-d2.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+litellm = "^1.49.0"
+pydantic-settings = "^2.5.2"
+boto3 = "^1.35.44"
+fastapi-cognito = "^2.7.0"
+pynamodb = "^6.0.1"
+python-dateutil = "^2.9.0.post0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+pytest-asyncio = "^0.25.0"
+pytest-mock = "^3.14.0"
+moto = "^5.0.22"
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = ["__init__.py"]
+
+# https://docs.pytest.org/en/stable/reference/customize.html
+[tool.pytest.ini_options]
+pythonpath = [
+  "./src"
+]
+# https://github.com/pytest-dev/pytest-asyncio/issues/924
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+  "ignore::DeprecationWarning:litellm.*:",
+  "ignore::DeprecationWarning:pydantic.*:",
+  "ignore::DeprecationWarning:botocore.*:",
+]
+
+# https://coverage.readthedocs.io/en/latest/source.html
+[tool.coverage.run]
+omit = [
+    "__init__.py",
+    "src/repositories/*",
+    ]
