@@ -13,7 +13,7 @@ litellm = "^1.49.0"
 pydantic-settings = "^2.5.2"
 boto3 = "^1.35.44"
 fastapi-cognito = "^2.7.0"
-pynamodb = "^6.0.1"
+pynamodb = "^6.0.2"
 python-dateutil = "^2.9.0.post0"
 
 [tool.poetry.group.dev.dependencies]
