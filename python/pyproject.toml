@@ -8,7 +8,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fastapi = {extras = ["standard"], version = "^0.115.0"}
+fastapi = {extras = ["standard"], version = "^0.115.12"}
 litellm = "^1.49.0"
 pydantic-settings = "^2.5.2"
 boto3 = "^1.35.44"
